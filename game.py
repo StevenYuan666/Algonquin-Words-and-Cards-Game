@@ -134,12 +134,15 @@ def is_valid_sequence(cards):
     False
     >>> is_valid_sequence([34, 38, 30]) 
     True
+    >>> is_valid_sequence([34, 42, 30]) 
+    False
     '''
     result = True
     
+    cards.sort()
     if(len(cards) >= 3):
         for i in range(1, len(cards)):
-            result = result and ((cards[i] - cards[i-1]) % 4 == 0)
+            result = result and ((cards[i] - cards[i-1]) == 4)
         return result
     else:
         return False
